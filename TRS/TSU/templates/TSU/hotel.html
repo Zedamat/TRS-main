@@ -1,0 +1,38 @@
+{% extends "TSU/base.html" %}
+
+
+{% block content %}
+  
+
+<div>
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+          
+      labels: [{% for product in products %} '{{product.Hotel}}', {% endfor %}],
+      datasets: [{
+        label: '# Hotel Accommodation User',
+        data: [{% for product in products %} {{product.num_of_User}}, {% endfor %}],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+</div> 
+
+{% endblock content %}
+

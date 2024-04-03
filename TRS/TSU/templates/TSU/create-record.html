@@ -1,0 +1,95 @@
+{% extends 'TSU/base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 ">
+
+            <h3> Create record </h3>
+
+            <h6> Start adding in the required details for your record. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                {{form.first_name|as_crispy_field}}
+
+                <br>
+
+                {{form.last_name|as_crispy_field}}
+
+                <br>
+
+                {{form.Nationality|as_crispy_field}}
+
+                <br>
+
+                {{form.Sex|as_crispy_field}}
+
+                <br>
+
+                {{form.Birth_date|as_crispy_field}}
+
+                <br>
+
+                {{form.Passport|as_crispy_field}}
+
+                <br>
+
+                {{form.Arrival_date|as_crispy_field}}
+
+                <br>
+
+                {{form.Departure_date|as_crispy_field}}
+
+                <br>
+
+                {{form.Purpose|as_crispy_field}}
+
+                <br>
+
+                {{form.Hotel|as_crispy_field}}
+
+                <br>
+
+                {{form.Id_document|as_crispy_field}}
+
+                 <br>
+
+                <button type="submit" class="btn btn-primary"> 
+                    
+                    Create record &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+
+                </button>
+
+                &nbsp;
+
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary"> 
+
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,38 @@
+{% extends 'TSU/base.html' %}
+
+{% block content %}
+ 
+<body>
+  <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+  
+  <script>
+  const xValues = [{% for nation in nations %} '{{nation.country}}', {% endfor %}];
+  const yValues = [{%for nation in nations %} {{nation.num_of_visiter}}, {% endfor %}];
+  
+  new Chart("myChart", {
+    type: "line",
+    data: {
+      labels: xValues,
+      datasets: [{
+        label: '# Nationality of Hotel User',
+        fill: false,
+        lineTension: 0,
+        backgroundColor: "rgba(0,0,255,1.0)",
+        borderColor: "rgba(0,0,255,0.1)",
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      scales: {
+        yAxes: [{ticks: {min: 6, max:16}}],
+      }
+    }
+  });
+  </script>
+  
+  </body>
+ 
+  
+
+{% endblock %}

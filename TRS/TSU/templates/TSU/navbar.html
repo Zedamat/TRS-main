@@ -1,0 +1,103 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary justify-content-center">
+
+    <a class="navbar-brand main-heading" href="{% url '' %}"> 
+            
+      &nbsp; Project-X
+    
+    </a>
+  
+  
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+  
+    </button>
+  
+  
+      <div class="collapse navbar-collapse text-center" id="navbarNavDropdown">
+  
+        
+        <ul class="navbar-nav mr-auto">
+  
+  
+          &nbsp;     &nbsp;     &nbsp; 
+  
+          {% if user.is_authenticated %}
+
+          <li class="nav-item">
+    
+            <a class="nav-link" href="{% url 'create-record' %}"> Registration &nbsp; <i class="fa fa-home" aria-hidden="true"></i></a>
+    
+          </li>
+  
+          &nbsp;     &nbsp;     &nbsp; 
+
+            <li class="nav-item">
+        
+              <a class="nav-link" href="{% url 'dashboard' %}">Dashboard &nbsp; <i class="fa fa-home" aria-hidden="true"></i> </a>
+  
+            </li>
+
+            &nbsp;     &nbsp;     &nbsp; 
+
+            <li class="nav-item">
+              <div class="btn-group">
+                <button type="button" class="btn btn-danger">Statistics</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="hotel">Hotel</a>
+                  <a class="dropdown-item" href="nation">Nationality</a>
+                  <a class="dropdown-item" href="sex">Sex</a>
+                  <a class="dropdown-item" href="purpose">Purpose</a>
+                </div>
+              </div>
+            </li>
+  
+              &nbsp;     &nbsp;     &nbsp; 
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'user-logout' %}"> Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+  
+            </li>
+  
+  
+        </ul>
+  
+        {% else %}
+  
+        <li class="nav-item">
+  
+          <a class="nav-link" href="{% url 'register' %}"> Register </a>
+  
+        </li>
+  
+  
+        &nbsp;     &nbsp;     &nbsp; 
+  
+  
+        <li class="nav-item">
+  
+          <a class="nav-link" href="{% url 'my-login' %}">Login</a>
+  
+        </li>   
+  
+  
+        {% endif %}
+      
+      </div>
+  
+</nav>
+
+
+
+

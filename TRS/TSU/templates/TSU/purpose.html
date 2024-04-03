@@ -1,0 +1,37 @@
+{% extends "TSU/base.html" %}
+
+
+{% block content %}
+ 
+    <canvas id="myChart" style="width:85%;max-width:700px"></canvas>
+    
+    <script>
+    var xValues = [{% for Purpose in Purposes%} '{{Purpose.Kind_visit}}', {% endfor %}];
+    var yValues = [{% for Purpose in Purposes%} {{Purpose.count}}, {% endfor %}];
+    var barColors = [
+      "#b91d47",
+      "#00aba9",
+      "#2b5797",
+      "#e8c3b9",
+      "#1e7145"
+    ];
+    
+    new Chart("myChart", {
+      type: "doughnut",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Hotel user by purpose of visiting"
+        }
+      }
+    });
+    </script>
+ 
+    {% endblock content %}

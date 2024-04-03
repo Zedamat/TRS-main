@@ -1,0 +1,42 @@
+{% extends "TSU/base.html" %}
+
+{% block content %}
+<div>
+    
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+<script>
+var xValues = [{% for sex in sexs %} '{{sex.gender}}', {% endfor %}];
+var yValues = [{% for sex in sexs %} {{sex.number}}, {% endfor %}];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Hotel Users by Sex",
+    }
+  }
+});
+</script>
+
+</script>
+</div>
+
+{% endblock %}
+

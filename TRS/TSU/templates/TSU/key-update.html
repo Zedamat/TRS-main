@@ -1,0 +1,10 @@
+{% extends 'TSU/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <h3>Change password</h3>
+  <form method="POST">
+    {% csrf_token %}
+    {{ fm.as_p}}
+    <button type="submit">Submit</button>
+  </form>
+{% endblock %}

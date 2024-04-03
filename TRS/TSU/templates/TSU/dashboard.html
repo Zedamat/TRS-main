@@ -1,0 +1,86 @@
+{% extends 'TSU/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <h5> Welcome, {{user}}! 👋 </h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+
+        Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr> 
+
+   
+    </div>
+    
+    </div>
+    <br>
+    <table id="example" class="table table-hover table-bordered">
+
+        <thead class="table-light" >
+
+            <tr>
+                <!--<th scope="col"> ID</th>-->
+                <th scope="col"> <font size=2> Full name </font> </th>
+                <th scope="col"> <font size=2>Nationality </font></th>
+                <th scope="col"> <font size=2>Birth-date</font> </th>
+                <th scope="col"> <font size=2>Sex </font></th>
+                <th scope="col"> <font size=2>Age </font></th>
+                <th scope="col"> <font size=2>Passport#</font></th>
+                <th scope="col"> <font size=2>Arrival</font></th>
+                <th scope="col"> <font size=2>Departure</font> </th>
+                <th scope="col"> <font size=2>Stay</font></th>
+                <th scope="col"> <font size=2>Purpose</font></th>
+                <th scope="col"> <font size=2>Hotel</font> </th>
+                <!--<th scope="col"> Date</th>-->
+                <th scope="col"> <font size=2>Passport/ID</font></th> 
+                <th scope="col"> <font size=2>View </font></th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if records %}
+
+            {% for record in records %}
+
+            <tr>
+
+                <!--<td> {{record.id}} </td>-->
+                <td> <font size=2>{{record.first_name}} {{record.last_name}}</font></td>
+                <td> <font size=2>{{record.Nationality}}</font> </td>
+                <td> <font size=2>{{record.Birth_date}}</font></td>
+                <td> <font size=2>{{record.Sex}}</font></td>
+                <td> <font size=2>{{record.Age}}</font></td>
+                <td> <font size=2>{{record.Passport}}</font></td>
+                <td> <font size=2>{{record.Arrival_date}}</font></td>
+                <td> <font size=2>{{record.Departure_date}}</font> </td>
+                <td> <font size=2>{{record.Stay}}</font></td>
+                <td> <font size=2>{{record.Purpose}}</font></td>
+                <td> <font size=2>{{record.Hotel}}</font></td>
+                <!--<td> {{record.creation_date}} </td>-->
+                <td><font size=2>{{record.Id_document}}</font>  </td>
+                <td> <a class="btn btn-success btn-sm" href="{% url 'record' record.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+
+            </tr>
+
+            {% endfor %}
+        
+        {% endif %}
+
+
+        </tbody>
+
+
+    </table>
+
+
+{% endblock %}

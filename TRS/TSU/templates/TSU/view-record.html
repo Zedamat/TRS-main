@@ -1,0 +1,82 @@
+{% extends 'TSU/base.html' %}
+
+
+{% block content %}
+
+                <figure class="bg-slate-80 rounded-xl p-8 dark:bg-slate-600">
+                    <div class="card">
+
+                        <div class="card-body ">
+                
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+                
+                            <strong>   
+                                 {{record.first_name}}      
+                                 {{record.last_name}}
+                            </strong>
+                            
+                            <hr> 
+                            <div class="center"><img class="w-400 h-300 mx-auto rounded float-right"  src="{{record.Id_document.url}}" alt="" width="420" height="300"/>
+                                <figcaption class="font-medium">
+                                     <div class="text-sky-500 dark:text-sky-400 text-center">
+                                         <strong>{{record.first_name}} {{record.last_name}}</strong>
+                                     </div>
+                                </figcaption>
+                            </div>
+                        <div class="float-container">
+                            
+                            <div class="float-child ">
+                                
+                            <p> <strong> ID: </strong> {{record.id}} </p>
+                            
+                            <p> <strong> Nationality: </strong> {{record.Nationality}} </p>
+
+                            <p> <strong> Sex: </strong> {{record.Sex}} </p>
+                            
+                            <p> <strong> Birth date: </strong> {{record.Birth_date}} </p>
+                            
+                            <p> <strong> Age: </strong> {{record.Age}} </p>
+                            
+                            <p> <strong> Passport: </strong> {{record.Passport}} </p>
+                           
+                              </div> 
+                           <div class="float-child1">
+
+                            <p> <strong> Arrival date: </strong> {{record.Arrival_date}} </p>
+
+                            <p> <strong> Departure date: </strong> {{record.Departure_date}} </p>
+                            
+                            <p> <strong> Stay: </strong> {{record.Stay}} </p>
+                            
+                            <p> <strong> Purpose: </strong> {{record.Purpose}} </p>
+                            
+                            <p> <strong> Hotel: </strong> {{record.Hotel}} </p>
+
+                            <p> <strong> creation date: </strong> {{record.creation_date}} </p>
+                        </div>        
+                        </div>
+                            
+                            
+                         
+                                   
+                        </div>   
+                            
+                    </div>   
+                </figure>
+                
+
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+
+    &nbsp;
+
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info"> Update record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i> </a>
+
+    &nbsp;
+
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete &nbsp;<i class="fa fa-minus-square" aria-hidden="true"></i> </a>
+
+
+{% endblock %}
+
